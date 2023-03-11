@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import { VStack } from "@chakra-ui/react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import JoinForm from "./pages/home/JoinForm";
+import HiScore from "./pages/HiScore";
+import Play from "./pages/play/Play";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <VStack justifyContent="space-between" h="100vh" bgColor="gray.100">
+      <Header />
+      <Routes>
+        <Route path="/" element={<JoinForm />} />
+        <Route path="/hiscores" element={<HiScore />} />
+        <Route path="/play/:id" element={<Play />} />
+      </Routes>
+      <Footer />
+    </VStack>
   );
 }
 
